@@ -1,9 +1,5 @@
 library(forecast)
 library(tseries)
-install.packages ("moments")
-library (moments)
-install.packages("tidyverse")
-library(tidyverse)
 
 
 
