@@ -1,27 +1,39 @@
-
+library(forecast)
 library(tseries)
-
-N = 5000
-reps = 50000
-
-AR1 = arima.sim(model = list(1,1,0), N)
-plot.ts(AR1)
+install.packages ("moments")
+library (moments)
+install.packages("tidyverse")
+library(tidyverse)
 
 
-adf = rep(NA, reps)
 
-for (i in 1:reps){
-  adf[i] = adf.test(AR1)
+T = 100 #Observationer
+N = 10000 #Gentagelser
+tstat = c()
+yt=c()
+tstat1 = c()
+
+for(j in 1:N){
+y = numeric(T+50)
+y[1] = 0
+a = 1
+
+
+for(i in 2:length(y)){
+  y[i] <- a * y[i - 1] + rnorm(1)
+  yt = y[51:150]
 }
 
-adf1 = as.numeric(adf)
-
-plot(density(adf1))
-
-
-
+adf = adf.test(yt, k =0)
+tstat = print(adf$statistic)
+tstat1[j] = tstat 
+}
 
 
+adf_dens = density(tstat1)
+
+
+plot(adf_dens)
 
 
 
