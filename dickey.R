@@ -29,7 +29,5 @@ tstat1[j] = tstat
 adf_dens = density(tstat1)
 
 
-plot(adf_dens)
-
 
 
