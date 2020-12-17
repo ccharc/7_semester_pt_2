@@ -94,6 +94,7 @@ gsadff = gsadf(500,200, adflag = 1, mflag = 1, swindow0 = 20)
 sadff = sadf(500,200)
 
 plot(adf_dens, col = "blue" , ylim = range(0:1), xlim=range(-5:5), main = "", xlab = "")
+lines(dens_sadf, add=T, col = "black")
 lines(sadf_dens, add=T, col = "red")
 lines(gsadf_dens, add=T, col ="green")
 legend("topright", legend = c("ADF", "SADF", "GSADF", "Our SADF"),  text.col = c("blue","red","green", "black" ) )
